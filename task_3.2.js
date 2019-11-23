@@ -34,6 +34,53 @@ Learn more about protein translation on Wikipedia.
 
 */
 
-function rnaToProteins(???) {
-  ???
+let rna = "AUGUUUUCUUAAAUG";
+
+function rnaToProteins(rna) {
+  let codons = rna.match(/.{1,3}/g)
+  console.log(codons)
+
+  let proteins = [];
+
+  for (let i = 0; i < codons.length; i++){
+    let x = codons[i];
+    if (x == "UAA" || x == "UAG" || x == "UGA"){
+      break; 
+    } else if (x == "AUG"){
+      proteins.push("Methionine")
+    } else if (x == "UUU" || x == "UUC"){
+      proteins.push( "Phenylalanine")
+    } else if (x == "UUA" || x == "UUG"){
+      proteins.push("Leucine")
+    } else if (x == "UCU" || x == "UCC" || x == "UCA" || x == "UCG"){
+      proteins.push("Serine")
+    } else if (x == "UAU" || x == "UAC"){
+      proteins.push( "Tyrosine")
+    } else if (x == "UGG"){
+      proteins.push( "Tryptophan")
+    } 
+  }
+ 
+  /* Map function does not work with "break" */
+  // let proteins = codons.map( x => {
+  //   if (x == "UAA" || x == "UAG" || x == "UGA"){
+  //     break; 
+  //   } else if (x == "AUG"){
+  //     return "Methionine"
+  //   } else if (x == "UUU" || x == "UUC"){
+  //     return "Phenylalanine"
+  //   } else if (x == "UUA" || x == "UUG"){
+  //     return "Leucine"
+  //   } else if (x == "UCU" || x == "UCC" || x == "UCA" || x == "UCG"){
+  //     return "Serine"
+  //   } else if (x == "UAU" || x == "UAC"){
+  //     return "Tyrosine"
+  //   } else if (x == "UGG"){
+  //     return "Tryptophan"
+  //   } 
+  // })
+ 
+  return proteins;
 }
+
+console.log(rnaToProteins(rna));
