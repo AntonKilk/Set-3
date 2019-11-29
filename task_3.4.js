@@ -9,7 +9,16 @@ And if you ask for a 6-digit series from a 5-digit string, you deserve whatever 
 Note that these series are only required to occupy adjacent positions in the input; the digits need not be numerically consecutive.
 */
 
-function substrings(str) {
-  ???
+function substrings(str, n) {
+  let output = []; // output array. Empty if "n" is less than length of input string "str".
+
+  if (str.length < n) return output
+  
+  while (str.length >= n){
+    output.push(str.substring(0, n))
+    str = str.substr(1)
+  }
+   return output
 }
-*/
+
+console.log(substrings("123456789", 4));

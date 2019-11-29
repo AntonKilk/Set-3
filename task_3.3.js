@@ -7,16 +7,14 @@ The genetic language of every living thing on the planet is DNA. DNA is a large 
 Here is an analogy: nucleotides are to DNA as legos are to lego houses.
 
 */
-// Accumulator kak objekt
 
 function countNucleotides(string) {
   let arr = string.split("")
-  console.log(arr)
-  let counted = arr.reduce( (allNames, n) => {
-    allNames[n] = (allNames[n] || 0 ) + 1
-    return allNames
+  let counted = arr.reduce( (count, n) => {
+    count[n] = (count[n] || 0 ) + 1
+    return count
   }, {})
   return counted
 }
 
-console.log(countNucleotides("ACGTACGT"))
+console.log(countNucleotides("ACGTACGTTTGGAA"))
